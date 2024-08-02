@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You Name</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('ed233f6997fb13dfd6fa857c6c330c97.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 1s, transform 1s;
+            transform: translateY(-20px);
+        }
+
+        .message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .message.hide {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .heart {
+            color: red;
+        }
+
+        .signature {
+            margin-top: 10px;
+            font-size: 18px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="nameInput" placeholder="Masukkan nama">
+        <button onclick="showMessage()">Kirim</button>
+        <div id="message" class="message"></div>
+        <div id="signature" class="signature">Dibuat Oleh Adit Dengan Penuh Cinta❤️</div>
+    </div>
+
+    <script>
+        function showMessage() {
+            const name = document.getElementById('nameInput').value;
+            const messageElement = document.getElementById('message');
+
+            if (name.trim() === '') {
+                messageElement.textContent = '';
+                messageElement.classList.remove('show');
+                messageElement.classList.add('hide');
+            } else {
+                messageElement.textContent = `I Love You ${name} ❤️`;
+                messageElement.classList.remove('hide');
+                messageElement.classList.add('show');
+            }
+        }
+    </script>
+</body>
+</html>
